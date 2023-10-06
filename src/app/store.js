@@ -3,7 +3,7 @@ import authReducer from "../features/auth/authSlice";
 import profileReducer from "../features/profile/profileSlice";
 import userReducer from "../features/user/userSlice";
 import administrationReducer from "../features/administration/administrationSlice";
-import studyPlanReducer from "../features/studyPlan/studyplanSlice";
+import studyPlanReducer from "../features/studyplan/studyplanSlice";
 import gradingReducer from "../features/grading/gradingSlice";
 
 export const store = configureStore({
