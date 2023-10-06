@@ -1,7 +1,6 @@
 /* eslint-disable indent */
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "react-circular-progressbar/dist/styles.css";
 import { CircularProgressbar } from "react-circular-progressbar";
 import { getGrading } from "../../../features/grading/gradingSlice";
 import useEffectOnce from "../../../helpers/useEffectOnce";
