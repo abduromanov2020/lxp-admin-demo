@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useEffectOnce from "../../../helpers/useEffectOnce";
-import { approveStudyPlan, getStudyPlan } from "../../../features/studyPlan/studyplanSlice";
+import { approveStudyPlan, getStudyPlan } from "../../../features/studyplan/studyplanSlice";
 
 const TableStudyPlan = () => {
   const [planList, setPlanList] = useState([]);
