@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../../component/default/Sidebar";
 import Topbar from "../../component/default/Topbar";
-import TableStudyPlan from "../../component/student/studyPlan/TableStudyPlan";
+import TableStudyPlan from "../../component/student/studyplan/TableStudyPlan";
 
 const StudyPlan = () => {
   return (
