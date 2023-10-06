@@ -2,7 +2,6 @@ import React from "react";
 import Sidebar from "../../component/default/Sidebar";
 import Topbar from "../../component/default/Topbar";
 import TableGrading from "../../component/student/grading/TableGrading";
-import "react-circular-progressbar/dist/styles.css";
 
 const Grading = () => {
   return (
