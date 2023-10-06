@@ -1,9 +1,9 @@
 /* eslint-disable indent */
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CircularProgressbar } from "react-circular-progressbar";
 import { getGrading } from "../../../features/grading/gradingSlice";
 import useEffectOnce from "../../../helpers/useEffectOnce";
+import GradingBar from "../../../pages/student/GradingBar";
 
 const TableGrading = () => {
   const [gradingList, setGradingList] = useState([]);
@@ -113,17 +113,7 @@ const TableGrading = () => {
                                               className="d-flex flex-column  justify-content-center align-items-center"
                                             >
                                               {materialEnrolled.score !== null ? (
-                                                <div
-                                                  style={{
-                                                    height: "70px",
-                                                    width: "70px",
-                                                  }}
-                                                >
-                                                  <CircularProgressbar
-                                                    value={materialEnrolled.score}
-                                                    text={`  Nilai ${materialEnrolled.score} `}
-                                                  />
-                                                </div>
+                                                <GradingBar score={materialEnrolled.score} />
                                               ) : (
                                                 <div
                                                   className="d-flex flex-column  justify-content-center align-items-center"
