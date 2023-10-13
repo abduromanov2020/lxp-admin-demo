@@ -206,8 +206,7 @@ const Sidebar = () => {
             <div className="px-3 mt-auto pt-3">
               <div className="d-flex align-items-center justify-content-between text-primary-hover">
                 <a
-                  className="h5 mb-0 text-body "
-                  href="admin-setting.html"
+                  className="h5 mb-0 text-body disabled text-secondary"
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                   title="Settings"
@@ -215,8 +214,7 @@ const Sidebar = () => {
                   <i className="bi bi-gear-fill"></i>
                 </a>
                 <a
-                  className="h5 mb-0 text-body"
-                  href="index-2.html"
+                  className="h5 mb-0 text-body disabled text-secondary"
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                   title="Home"
