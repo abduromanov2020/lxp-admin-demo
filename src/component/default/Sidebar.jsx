@@ -223,9 +223,9 @@ const Sidebar = () => {
                 >
                   <i className="bi bi-globe"></i>
                 </a>
-                <button className="h5 mb-0 text-body" onClick={onLogout}>
+                <a className="h5 mb-0 text-body btn btn-link fs-4 p-0" onClick={onLogout}>
                   <i className="bi bi-power"></i>
-                </button>
+                </a>
               </div>
             </div>
           </div>
