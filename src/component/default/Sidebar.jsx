@@ -123,7 +123,7 @@ const Sidebar = () => {
 
               <li className="nav-item">
                 <a
-                  className="nav-link"
+                  className="nav-link disabled text-secondary"
                   data-bs-toggle="collapse"
                   href="#collapseinstructors"
                   role="button"
@@ -191,14 +191,14 @@ const Sidebar = () => {
 
               <li className="nav-item">
                 {" "}
-                <a className="nav-link" href="admin-review.html">
+                <a className="nav-link disabled text-secondary" href="admin-review.html">
                   <i className="far fa-comment-dots fa-fw me-2"></i>Reviews
                 </a>
               </li>
 
               <li className="nav-item">
                 {" "}
-                <a className="nav-link" href="admin-earning.html">
+                <a className="nav-link disabled text-secondary" href="admin-earning.html">
                   <i className="far fa-chart-bar fa-fw me-2"></i>Earnings
                 </a>
               </li>
@@ -206,7 +206,7 @@ const Sidebar = () => {
             <div className="px-3 mt-auto pt-3">
               <div className="d-flex align-items-center justify-content-between text-primary-hover">
                 <a
-                  className="h5 mb-0 text-body"
+                  className="h5 mb-0 text-body "
                   href="admin-setting.html"
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
