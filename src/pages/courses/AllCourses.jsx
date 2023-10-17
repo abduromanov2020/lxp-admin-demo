@@ -2,8 +2,8 @@ import React from "react";
 import Sidebar from "../../component/default/Sidebar";
 import Topbar from "../../component/default/Topbar";
 import CourseBoxes from "../../component/courses/CourseBoxes";
-import ListCourses from "../../component/courses/ListCourses";
 import { Link } from "react-router-dom";
+import TableCourses from "../../component/courses/TableCourses";
 
 const AllCourses = () => {
   return (
@@ -16,10 +16,7 @@ const AllCourses = () => {
           <div className="row mb-3">
             <div className="col-12 d-sm-flex justify-content-between align-items-center">
               <h1 className="h3 mb-2 mb-sm-0">Courses</h1>
-              <Link
-                to="/buat-pelatihan"
-                className="btn btn-sm btn-primary mb-0"
-              >
+              <Link to="/buat-pelatihan" className="btn btn-sm btn-primary mb-0">
                 Create a Course
               </Link>
             </div>
@@ -28,7 +25,7 @@ const AllCourses = () => {
           <CourseBoxes />
           {/* Course boxes END */}
           {/* Card START */}
-          <ListCourses />
+          <TableCourses />
           {/* Card END */}
         </div>
       </div>

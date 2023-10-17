@@ -31,10 +31,7 @@ const getEmployee = async () => {
     },
   };
 
-  const response = await axios.get(
-    API_URL + "studentmanagement/student/all",
-    config
-  );
+  const response = await axios.get(API_URL + "studentmanagement/student/all", config);
 
   return response.data;
 };
