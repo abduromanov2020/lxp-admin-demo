@@ -8,7 +8,6 @@ import {
 
 const TableAdministration = () => {
   const [administrationList, setAdministrationList] = useState([]);
-  const [updateAdministation, setUpdateAdministation] = useState({ id: "" });
 
   const dispatch = useDispatch();
 
@@ -18,15 +17,12 @@ const TableAdministration = () => {
   const isSuccess = useSelector((state) => state.administration.isSuccess);
 
   useEffectOnce(() => {
-    if (updateAdministation.id !== "") {
-      dispatch(updateAdministrations(updateAdministation));
-    }
-
     dispatch(getAdministrations());
   });
 
   const handleChangeApproved = (userId) => {
-    setUpdateAdministation({ id: userId });
+    dispatch(updateAdministrations({ id: userId }));
+    dispatch(getAdministrations());
   };
 
   useEffect(() => {
@@ -107,7 +103,7 @@ const TableAdministration = () => {
                         {data?.is_approved === false ? (
                           <button
                             className="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0"
-                            onClick={() => handleChangeApproved(data?.id)}
+                            onClick={() => handleChangeApproved(data.id)}
                           >
                             Approve Now
                           </button>
