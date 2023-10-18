@@ -87,27 +87,27 @@ const TableAdministration = () => {
                         </div>
 
                         <div className="ms-2">
-                          <h6 className="mb-0 fw-light text-start">{data.User.full_name}</h6>
+                          <h6 className="mb-0 fw-light text-start">{data?.User?.full_name}</h6>
                         </div>
                       </div>
                     </td>
-                    <td className="flex justify-center items-center">{data.nsn}</td>
-                    <td className="flex justify-center items-center">{data.nsn}</td>
-                    <td className="flex justify-center items-center">{data.department}</td>
+                    <td className="flex justify-center items-center">{data?.nsn}</td>
+                    <td className="flex justify-center items-center">{data?.nsn}</td>
+                    <td className="flex justify-center items-center">{data?.department}</td>
                     <td className="flex justify-center w-[100px] items-center">
-                      {data.User.email}
+                      {data?.User?.email}
                     </td>
-                    <td className="flex justify-center items-center">{data.company_name}</td>
+                    <td className="flex justify-center items-center">{data?.company_name}</td>
                     <td className="flex justify-center items-center">
                       {" "}
                       <div className="d-flex align-items-center">
                         <button className="btn btn-sm btn-primary-soft me-1 mb-1 mb-md-0">
                           Create Account
                         </button>
-                        {data.is_approved === false ? (
+                        {data?.is_approved === false ? (
                           <button
                             className="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0"
-                            onClick={() => handleChangeApproved(data.id)}
+                            onClick={() => handleChangeApproved(data?.id)}
                           >
                             Approve Now
                           </button>
