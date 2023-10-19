@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getGrading } from "../../../features/grading/gradingSlice";
 import useEffectOnce from "../../../helpers/useEffectOnce";
 import GradingBar from "../../../pages/student/GradingBar";
+import { Link } from "react-router-dom";
 
 const TableGrading = () => {
   const [gradingList, setGradingList] = useState([]);
@@ -99,8 +100,8 @@ const TableGrading = () => {
                             <div className="container">
                               <div className="row">
                                 {data.MaterialEnrolleds.map((materialEnrolled, index) => (
-                                  <a
-                                    href={`/student/grading/${materialEnrolled.id}/${materialEnrolled.status}`}
+                                  <Link
+                                    to={`/student/grading/${materialEnrolled.id}/${materialEnrolled.status}`}
                                     className="col-3 p-2"
                                     key={index}
                                   >
@@ -148,7 +149,7 @@ const TableGrading = () => {
                                         </div>
                                       </div>
                                     </div>
-                                  </a>
+                                  </Link>
                                 ))}
                               </div>
                             </div>

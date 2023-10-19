@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useEffectOnce from "../../../helpers/useEffectOnce";
 import { approveStudyPlan, getStudyPlan } from "../../../features/studyplan/studyplanSlice";
+import { toast } from "react-toastify";
 
 const TableStudyPlan = () => {
   const [planList, setPlanList] = useState([]);
@@ -30,6 +31,7 @@ const TableStudyPlan = () => {
 
   const hanldeClick = (student_id) => {
     dispatch(approveStudyPlan({ student_id: student_id }));
+    toast.success("Success approve study plan");
     setStatus([]);
   };
 
@@ -102,7 +104,7 @@ const TableStudyPlan = () => {
                             </div>
                           </div>
                         </td>
-                        <td>{data?.Subjects[0]?.StudentSubject?.status}</td>
+                        <td></td>
                         <td>{data?.Subjects?.length}</td>
                         <td>
                           <div className="d-flex gap-2 align-items-center justify-content-center">

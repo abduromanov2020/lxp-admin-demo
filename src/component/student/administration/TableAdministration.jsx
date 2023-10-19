@@ -5,6 +5,7 @@ import {
   getAdministrations,
   updateAdministrations,
 } from "../../../features/administration/administrationSlice";
+import { toast } from "react-toastify";
 
 const TableAdministration = () => {
   const [administrationList, setAdministrationList] = useState([]);
@@ -22,12 +23,12 @@ const TableAdministration = () => {
 
   const handleChangeApproved = (userId) => {
     dispatch(updateAdministrations({ id: userId }));
-    dispatch(getAdministrations());
+    toast.success("Success approve administration");
   };
 
   useEffect(() => {
     if (Object.values(data).length !== 0) setAdministrationList(data.admin_list.data);
-  }, [data, handleChangeApproved]);
+  }, [data]);
 
   return (
     <>

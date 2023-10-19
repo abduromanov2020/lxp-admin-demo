@@ -4,6 +4,7 @@ import Sidebar from "../../component/default/Sidebar";
 import { useDispatch } from "react-redux";
 import Topbar from "../../component/default/Topbar";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const GradingInput = () => {
   const { id, status } = useParams();
@@ -24,6 +25,8 @@ const GradingInput = () => {
     e.preventDefault();
     dispatch(updateGrading(gradingData));
     navigate("/student/grading");
+    toast.success("Grading has been updated");
+    // add toast if successfull or not
   };
 
   return (
@@ -32,8 +35,8 @@ const GradingInput = () => {
       <div className="page-content">
         <Topbar />
         <div className="page-content-wrapper border">
-          <div className="row">
-            <div className="col-12">
+          <div className="row justify-content-center">
+            <div className="col-4">
               <h1 className="h3 mb-2 mb-sm-0">Input Grading</h1>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -50,7 +53,7 @@ const GradingInput = () => {
                     <option value="ONGOING">ONGOING</option>
                   </select>
                 </div>
-                <div className="form-group">
+                <div className="form-group pb-3">
                   <label htmlFor="score">Score</label>
                   <input
                     type="text"
