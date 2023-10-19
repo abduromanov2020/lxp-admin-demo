@@ -27,7 +27,7 @@ const TableAdministration = () => {
 
   useEffect(() => {
     if (Object.values(data).length !== 0) setAdministrationList(data.admin_list.data);
-  }, [data]);
+  }, [data, handleChangeApproved]);
 
   return (
     <>

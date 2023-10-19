@@ -124,7 +124,7 @@ const TableStudyPlan = () => {
                                 </button>
                               </>
                             )}
-                            {data?.Subjects?.length > 0 && (
+                            {data?.Subjects?.length > 0 ? (
                               <button
                                 className="btn btn-sm btn-secondary"
                                 data-bs-toggle="collapse"
@@ -135,6 +135,8 @@ const TableStudyPlan = () => {
                               >
                                 Detail
                               </button>
+                            ) : (
+                              <button className="btn btn-sm btn-secondary disabled">Detail</button>
                             )}
                           </div>
                         </td>

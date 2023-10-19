@@ -3,10 +3,11 @@ import { updateGrading } from "../../features/grading/gradingSlice";
 import Sidebar from "../../component/default/Sidebar";
 import { useDispatch } from "react-redux";
 import Topbar from "../../component/default/Topbar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const GradingInput = () => {
   const { id, status } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [gradingData, setGradingData] = useState({
     materialenrolled_id: id,
@@ -22,7 +23,7 @@ const GradingInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateGrading(gradingData));
-    window.location.href = "/student/grading";
+    navigate("/student/grading");
   };
 
   return (
