@@ -3,6 +3,15 @@ import Sidebar from "../../component/default/Sidebar";
 import Topbar from "../../component/default/Topbar";
 
 const CreateCourses = () => {
+  const handleCreateCourse = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    console.table(data.name);
+  };
+
   return (
     <>
       <Sidebar />
@@ -13,7 +22,7 @@ const CreateCourses = () => {
             <div className="row"></div>
             <div className="card bg-transparent border rounded-3 mb-5">
               <div className="card-body">
-                <form action="">
+                <form action="" onSubmit={handleCreateCourse}>
                   <h4>Create Course</h4>
                   <hr />
                   <div className="row g-4">
@@ -84,7 +93,9 @@ const CreateCourses = () => {
                       />
                     </div>
                     <div className="d-flex justify-content-end mt-3">
-                      <button className="btn btn-primary next-btn mb-0">Create Course</button>
+                      <button className="btn btn-primary next-btn mb-0" type="submit">
+                        Create Course
+                      </button>
                     </div>
                   </div>
                 </form>
