@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { updateGrading } from "../../features/grading/gradingSlice";
 import Sidebar from "../../component/default/Sidebar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Topbar from "../../component/default/Topbar";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import useEffectOnce from "../../helpers/useEffectOnce";
+import { getAssignmentById } from "../../features/assignment/assignmentSlice";
 
 const GradingInput = () => {
-  const { id, status } = useParams();
+  const { id } = useParams();
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { data } = useSelector((state) => state.assignment);
+
+  // const isLoading = useSelector((state) => state.assignment.isLoading);
+  // const isSuccess = useSelector((state) => state.assignment.isSuccess);
+
+  const [assignment, setAssignment] = useState({});
+
   const [gradingData, setGradingData] = useState({
     materialenrolled_id: id,
-    status: status,
+    status: "",
     score: "",
   });
 
@@ -21,13 +32,21 @@ const GradingInput = () => {
     setGradingData({ ...gradingData, [name]: value });
   };
 
+  useEffectOnce(() => {
+    dispatch(getAssignmentById({ materialenrolled_id: id }));
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateGrading(gradingData));
     navigate("/student/grading");
     toast.success("Grading has been updated");
-    // add toast if successfull or not
   };
+
+  useEffect(() => {
+    if (Object.values(data).length !== 0) setAssignment(data.assignment);
+    console.log(assignment);
+  }, [data]);
 
   return (
     <>

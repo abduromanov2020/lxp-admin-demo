@@ -108,6 +108,12 @@ const Sidebar = () => {
                   </li>
                   <li className="nav-item ms-1">
                     {" "}
+                    <NavLink className="nav-link" to="/student/student-account">
+                      Account
+                    </NavLink>
+                  </li>
+                  <li className="nav-item ms-1">
+                    {" "}
                     <NavLink className="nav-link" to="/student/study-plan">
                       Study Plan
                     </NavLink>

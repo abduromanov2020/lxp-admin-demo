@@ -21,6 +21,7 @@ import AdministrationStudent from "./pages/student/AdministrationStudent";
 import Grading from "./pages/student/Grading";
 import StudyPlan from "./pages/student/StudyPlan";
 import GradingInput from "./pages/student/GradingInput";
+import StudentAccount from "./pages/student/StudentAccount";
 
 const App = () => {
   return (
@@ -50,9 +51,10 @@ const App = () => {
 
             <Route path="student" element={<PrivateRoute redirect />}>
               <Route path="administration" element={<AdministrationStudent />} />
+              <Route path="student-account" element={<StudentAccount />} />
               <Route path="study-plan" element={<StudyPlan />} />
               <Route path="grading" element={<Grading />} />
-              <Route path="grading/:id/:status" element={<GradingInput />} />
+              <Route path="grading/:id/" element={<GradingInput />} />
             </Route>
 
             <Route path="/daftar-pelatihan" element={<AllCourses />} />

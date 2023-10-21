@@ -101,7 +101,7 @@ const TableGrading = () => {
                               <div className="row">
                                 {data.MaterialEnrolleds.map((materialEnrolled, index) => (
                                   <Link
-                                    to={`/student/grading/${materialEnrolled.id}/${materialEnrolled.status}`}
+                                    to={`/student/grading/${materialEnrolled.id}`}
                                     className="col-3 p-2"
                                     key={index}
                                   >

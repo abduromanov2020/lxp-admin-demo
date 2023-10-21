@@ -6,6 +6,7 @@ import administrationReducer from "../features/administration/administrationSlic
 import studyPlanReducer from "../features/studyplan/studyplanSlice";
 import gradingReducer from "../features/grading/gradingSlice";
 import courseReducer from "../features/courses/courseSlice";
+import assignmentReducer from "../features/assignment/assignmentSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     studyPlan: studyPlanReducer,
     grading: gradingReducer,
     courses: courseReducer,
+    assignment: assignmentReducer,
   },
 });

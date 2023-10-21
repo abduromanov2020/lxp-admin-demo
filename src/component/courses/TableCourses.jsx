@@ -44,19 +44,10 @@ const TableCourses = () => {
                     Course Name
                   </th>
                   <th scope="col" className="border-0">
-                    Instructor
-                  </th>
-                  <th scope="col" className="border-0">
                     Added Date
                   </th>
                   <th scope="col" className="border-0">
-                    Type
-                  </th>
-                  <th scope="col" className="border-0">
-                    Price
-                  </th>
-                  <th scope="col" className="border-0">
-                    Status
+                    Level
                   </th>
                   <th scope="col" className="border-0 rounded-end">
                     Action
@@ -69,9 +60,6 @@ const TableCourses = () => {
                   <tr key={course.id}>
                     <td>
                       <div className="d-flex align-items-center position-relative">
-                        <div className="w-60px">
-                          <img src={course.thumbnail_link} className="rounded" alt="" />
-                        </div>
                         <h6 className="table-responsive-title mb-0 ms-2">
                           <a href="#" className="stretched-link">
                             {course.name}
@@ -79,31 +67,11 @@ const TableCourses = () => {
                         </h6>
                       </div>
                     </td>
-                    <td>
-                      <div className="d-flex align-items-center mb-3">
-                        <div className="avatar avatar-xs flex-shrink-0">
-                          <img
-                            className="avatar-img rounded-circle"
-                            src="assets/images/avatar/09.jpg"
-                            alt="avatar"
-                          />
-                        </div>
-                        <div className="ms-2">
-                          <h6 className="mb-0 fw-light">Lori Stevens</h6>
-                        </div>
-                      </div>
-                    </td>
+
                     <td>28 Oct 2021</td>
                     <td>
                       {" "}
                       <span className="badge text-bg-primary">{course.level}</span>{" "}
-                    </td>
-                    <td>$350</td>
-                    <td>
-                      {" "}
-                      <span className="badge bg-warning bg-opacity-15 text-warning">
-                        Pending
-                      </span>{" "}
                     </td>
                     <td>
                       <a href="#" className="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0">

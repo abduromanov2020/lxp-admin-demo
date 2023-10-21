@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import useEffectOnce from "../../../helpers/useEffectOnce";
-import {
-  getAdministrations,
-  updateAdministrations,
-} from "../../../features/administration/administrationSlice";
-import { toast } from "react-toastify";
+import { getAdministrations } from "../../../features/administration/administrationSlice";
 
-const TableAdministration = () => {
+const TableStudentAccount = () => {
   const [administrationList, setAdministrationList] = useState([]);
 
   const dispatch = useDispatch();
@@ -20,11 +16,6 @@ const TableAdministration = () => {
   useEffectOnce(() => {
     dispatch(getAdministrations());
   });
-
-  const handleChangeApproved = (userId) => {
-    dispatch(updateAdministrations({ id: userId }));
-    toast.success("Success approve administration");
-  };
 
   useEffect(() => {
     if (Object.values(data).length !== 0) setAdministrationList(data.admin_list.data);
@@ -98,18 +89,9 @@ const TableAdministration = () => {
                     <td className="flex justify-center items-center">
                       {" "}
                       <div className="d-flex align-items-center">
-                        {data?.is_approved === false ? (
-                          <button
-                            className="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0"
-                            onClick={() => handleChangeApproved(data.id)}
-                          >
-                            Approve Now
-                          </button>
-                        ) : (
-                          <button className="btn btn-sm btn-success me-1 mb-1 mb-md-0 disabled">
-                            Approved
-                          </button>
-                        )}
+                        <button className="btn btn-sm btn-primary-soft me-1 mb-1 mb-md-0">
+                          Create Account
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -123,4 +105,4 @@ const TableAdministration = () => {
   );
 };
 
-export default TableAdministration;
+export default TableStudentAccount;
