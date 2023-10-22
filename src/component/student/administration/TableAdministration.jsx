@@ -30,10 +30,17 @@ const TableAdministration = () => {
     if (Object.values(data).length !== 0) setAdministrationList(data.admin_list.data);
   }, [data]);
 
+  // create table sort
+  // const [sortType, setSortType] = useState("asc");
+  // const sorted = administrationList.sort((a, b) => {
+  //   const isReversed = sortType === "asc" ? 1 : -1;
+  //   return isReversed * a.full_name.localeCompare(b.full_name);
+  // });
+
   return (
     <>
       {isLoading && (
-        <div className="d-flex justify-content-center align-items-center">
+        <div className="d-flex justify-content-center align-items-center h-100">
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>

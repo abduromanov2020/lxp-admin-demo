@@ -19,7 +19,6 @@ const CreateCourses = () => {
         <Topbar />
         <section>
           <div className="container">
-            <div className="row"></div>
             <div className="card bg-transparent border rounded-3 mb-5">
               <div className="card-body">
                 <form action="" onSubmit={handleCreateCourse}>

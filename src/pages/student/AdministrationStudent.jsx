@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../../component/default/Sidebar";
 import Topbar from "../../component/default/Topbar";
 import TableAdministration from "../../component/student/administration/TableAdministration";
+import TableProperties from "../../component/default/TableProperties";
 
 const AdministrationStudent = () => {
   return (
@@ -15,7 +16,9 @@ const AdministrationStudent = () => {
               <h1 className="h3 mb-2 mb-sm-0">Administrasi Student</h1>
             </div>
           </div>
-          <TableAdministration />
+          <TableProperties>
+            <TableAdministration />
+          </TableProperties>
         </div>
       </div>
     </>

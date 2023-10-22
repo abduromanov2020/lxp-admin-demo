@@ -12,9 +12,9 @@ const initialState = {
 
 export const getAssignmentById = createAsyncThunk(
   "assignment/get-assignment-by-id",
-  async (materialenrolled_id, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      return await assignmentService.getAssignmentById(materialenrolled_id);
+      return await assignmentService.getAssignmentById(id);
     } catch (error) {
       return thunkAPI.rejectWithValue(extractErrorMessage(error));
     }

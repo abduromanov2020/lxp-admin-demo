@@ -4,7 +4,7 @@ import axios from "axios";
 
 const API_URL = "https://www.mknows.my.id/lxp/api/v1/";
 
-const getAssignmentById = async (materialenrolled_id) => {
+const getAssignmentById = async (id) => {
   const auth = getAuth(app);
   const token = await auth.currentUser.getIdToken();
 
@@ -15,17 +15,7 @@ const getAssignmentById = async (materialenrolled_id) => {
     },
   };
 
-  console.log(materialenrolled_id);
-
-  const response = await axios.get(
-    API_URL + "/studentmanagement/assignment/get",
-    {
-      params: {
-        materialenrolled_id: "9adfcf7a-cac6-4db7-99ff-6f4221c2327d",
-      },
-    },
-    config,
-  );
+  const response = await axios.get(API_URL + `/studentmanagement/assignment/get?id=${id}`, config);
 
   return response.data;
 };

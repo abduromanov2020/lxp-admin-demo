@@ -27,7 +27,7 @@ const updateGrading = async (dataToUpdate) => {
     },
   };
   const response = await axios.put(
-    API_URL + "studentmanagement/grade/assignment",
+    API_URL + "studentmanagement/assignment/grade",
     dataToUpdate,
     config,
   );
