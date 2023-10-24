@@ -21,7 +21,7 @@ const TableCourses = () => {
     if (data) {
       setCourseList(data.data);
     }
-  }, []);
+  }, [data]);
 
   return (
     <>
