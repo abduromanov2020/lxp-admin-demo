@@ -74,10 +74,10 @@ const GradingInput = () => {
                       <div className="col-12 col-sm-5">
                         {assignment.activity_detail ? (
                           <>
-                            <img
+                            <embed
                               src={assignment.activity_detail.file_assignment_link}
                               alt="..."
-                              className="img-fluid rounded-3"
+                              className="img-fluid rounded-3 d-block mx-auto mb-3"
                             />
                             <p className="text-muted text-end mt-2">
                               {assignment.activity_detail.date_submit}

@@ -5,6 +5,15 @@ import TableAdministration from "../../component/student/administration/TableAdm
 import TableProperties from "../../component/default/TableProperties";
 
 const AdministrationStudent = () => {
+  const option = [
+    "Nama Karyawan",
+    "Nomer Induk Karyawan",
+    "Tanggal Pengajuan",
+    "Divisi",
+    "Email",
+    "Nama Perusahaan",
+  ];
+
   return (
     <>
       <Sidebar />
@@ -16,7 +25,7 @@ const AdministrationStudent = () => {
               <h1 className="h3 mb-2 mb-sm-0">Administrasi Student</h1>
             </div>
           </div>
-          <TableProperties>
+          <TableProperties option={option}>
             <TableAdministration />
           </TableProperties>
         </div>

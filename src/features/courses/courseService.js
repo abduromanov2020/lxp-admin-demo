@@ -19,8 +19,25 @@ const getCourses = async () => {
   return response.data;
 };
 
+const createCourse = async (data) => {
+  const auth = getAuth(app);
+  const token = await auth.currentUser.getIdToken();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.post(API_URL + "subject/create", data, config);
+
+  return response.data;
+};
+
 const courseService = {
   getCourses,
+  createCourse,
 };
 
 export default courseService;

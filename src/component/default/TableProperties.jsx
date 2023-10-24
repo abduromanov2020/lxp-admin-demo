@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export default function TableProperties({ children }) {
+export default function TableProperties({ children, option }) {
   return (
     <div className="card bg-transparent border">
       <div className="card-header bg-light border-bottom">
@@ -25,9 +25,11 @@ export default function TableProperties({ children }) {
           <div className="col-md-3">
             <select className="form-select bg-body pe-auto" aria-label="Default select example">
               <option defaultValue>Sort By</option>
-              <option value="1">Nama</option>
-              <option value="2">Email</option>
-              <option value="3">Perusahaan</option>
+              {option.map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -39,4 +41,5 @@ export default function TableProperties({ children }) {
 
 TableProperties.propTypes = {
   children: PropTypes.node,
+  option: PropTypes.array,
 };

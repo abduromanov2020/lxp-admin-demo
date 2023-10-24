@@ -1,15 +1,26 @@
 import React from "react";
 import Sidebar from "../../component/default/Sidebar";
 import Topbar from "../../component/default/Topbar";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { createCourse } from "../../features/courses/courseSlice";
+import { toast } from "react-toastify";
 
 const CreateCourses = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleCreateCourse = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    console.table(data.name);
+    dispatch(createCourse({ ...data, lecturer: ["677743df-08db-4acd-8c51-dfec018301f8"] }));
+
+    navigate("/daftar-pelatihan");
+
+    toast.success("Course has been created");
   };
 
   return (
@@ -54,10 +65,10 @@ const CreateCourses = () => {
                         name="level"
                       >
                         <option value="">Select course level</option>
-                        <option>All level</option>
                         <option>Basic</option>
                         <option>Intermediate</option>
-                        <option>Advance</option>
+                        <option>Advanced</option>
+                        <option>All level</option>
                       </select>
                     </div>
                     <div className="col-md-6">
@@ -77,7 +88,7 @@ const CreateCourses = () => {
                       <label className="form-label">Credit</label>
                       <input
                         className="form-control"
-                        type="text"
+                        type="number"
                         placeholder="Enter credit course"
                         name="credit"
                       />
@@ -88,7 +99,7 @@ const CreateCourses = () => {
                         className="form-control"
                         type="number"
                         placeholder="Enter number of session"
-                        name="number_of_session"
+                        name="number_of_sessions"
                       />
                     </div>
                     <div className="d-flex justify-content-end mt-3">

@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import useEffectOnce from "../../../helpers/useEffectOnce";
-import { getAdministrations } from "../../../features/administration/administrationSlice";
+import { getStudentCandidates } from "../../../features/student/studentSlice";
+import EmptyTable from "../../default/EmptyTable";
 
 const TableStudentAccount = () => {
-  const [administrationList, setAdministrationList] = useState([]);
-
+  const [studentCandidate, setStudentCandidate] = useState([]);
   const dispatch = useDispatch();
 
-  const { data } = useSelector((state) => state.administration);
+  const { data } = useSelector((state) => state.student.data);
 
-  const isLoading = useSelector((state) => state.administration.isLoading);
-  const isSuccess = useSelector((state) => state.administration.isSuccess);
+  const isLoading = useSelector((state) => state.student.isLoading);
+  const isSuccess = useSelector((state) => state.student.isSuccess);
 
   useEffectOnce(() => {
-    dispatch(getAdministrations());
+    dispatch(getStudentCandidates());
   });
 
   useEffect(() => {
-    if (Object.values(data).length !== 0) setAdministrationList(data.admin_list.data);
+    if (data) {
+      setStudentCandidate(data);
+    }
   }, [data]);
 
   return (
@@ -61,8 +63,9 @@ const TableStudentAccount = () => {
                 </tr>
               </thead>
 
+              {studentCandidate.length === 0 && <EmptyTable />}
               <tbody>
-                {administrationList.map((data, index) => (
+                {studentCandidate.map((data, index) => (
                   <tr key={index}>
                     <td className="flex justify-center items-center">
                       <div className="d-flex align-items-center mb-3">

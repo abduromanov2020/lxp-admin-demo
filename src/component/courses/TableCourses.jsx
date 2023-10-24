@@ -18,8 +18,10 @@ const TableCourses = () => {
   });
 
   useEffect(() => {
-    if (Object.values(data).length !== 0) setCourseList(data.data);
-  }, [data]);
+    if (data) {
+      setCourseList(data.data);
+    }
+  }, []);
 
   return (
     <>
@@ -33,11 +35,8 @@ const TableCourses = () => {
 
       {isSuccess && !isLoading && (
         <div className="card-body">
-          {/* Course table START */}
           <div className="table-responsive border-0 rounded-3">
-            {/* Table START */}
             <table className="table table-dark-gray align-middle p-4 mb-0 table-hover">
-              {/* Table head */}
               <thead>
                 <tr>
                   <th scope="col" className="border-0 rounded-start">
@@ -54,7 +53,6 @@ const TableCourses = () => {
                   </th>
                 </tr>
               </thead>
-              {/* Table body START */}
               <tbody>
                 {courseList?.map((course) => (
                   <tr key={course.id}>
@@ -71,9 +69,19 @@ const TableCourses = () => {
                     <td>28 Oct 2021</td>
                     <td>
                       {" "}
-                      <span className="badge text-bg-primary">{course.level}</span>{" "}
+                      {course.level.toUpperCase() == "BASIC" ? (
+                        <span className="badge text-bg-primary">{course.level.toUpperCase()}</span>
+                      ) : course.level.toUpperCase() === "INTERMEDIATE" ? (
+                        <span className="badge text-bg-warning">{course.level.toUpperCase()}</span>
+                      ) : course.level.toUpperCase() === "ADVANCED" ? (
+                        <span className="badge text-bg-danger">{course.level.toUpperCase()}</span>
+                      ) : (
+                        <span className="badge text-bg-secondary">
+                          {course.level.toUpperCase()}
+                        </span>
+                      )}
                     </td>
-                    <td>
+                    <td width={170}>
                       <a href="#" className="btn btn-sm btn-success-soft me-1 mb-1 mb-md-0">
                         Approve
                       </a>
@@ -81,13 +89,9 @@ const TableCourses = () => {
                     </td>
                   </tr>
                 ))}
-                {/* Table row */}
               </tbody>
-              {/* Table body END */}
             </table>
-            {/* Table END */}
           </div>
-          {/* Course table END */}
         </div>
       )}
     </>
