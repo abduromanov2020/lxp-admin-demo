@@ -8,7 +8,7 @@ const TableCourses = () => {
 
   const dispatch = useDispatch();
 
-  const { data } = useSelector((state) => state.courses);
+  const { data } = useSelector((state) => state.courses.data);
 
   const isLoading = useSelector((state) => state.courses.isLoading);
   const isSuccess = useSelector((state) => state.courses.isSuccess);
@@ -18,8 +18,8 @@ const TableCourses = () => {
   });
 
   useEffect(() => {
-    if (data) {
-      setCourseList(data.data);
+    if (isSuccess && data) {
+      setCourseList(data);
     }
   }, [data]);
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../component/default/Sidebar";
 import Topbar from "../../component/default/Topbar";
 import { useDispatch } from "react-redux";
@@ -7,14 +7,23 @@ import { createCourse } from "../../features/courses/courseSlice";
 import { toast } from "react-toastify";
 
 const CreateCourses = () => {
+  const [data, setData] = useState({
+    name: "",
+    description: "",
+    level: "",
+    degree: "",
+    credit: "",
+    number_of_sessions: "",
+  });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleCreateCourse = (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
+    setData(Object.fromEntries(new FormData(e.target)));
+
+    console.log(data);
 
     dispatch(createCourse({ ...data, lecturer: ["677743df-08db-4acd-8c51-dfec018301f8"] }));
 
@@ -43,6 +52,8 @@ const CreateCourses = () => {
                         type="text"
                         placeholder="Enter course title"
                         name="name"
+                        onChange={(e) => setData({ ...data, name: e.target.value })}
+                        value={data.name}
                       />
                     </div>
                     <div className="col-12">
@@ -53,6 +64,8 @@ const CreateCourses = () => {
                         placeholder="Enter short description"
                         defaultValue={""}
                         name="description"
+                        onChange={(e) => setData({ ...data, description: e.target.value })}
+                        value={data.description}
                       />
                     </div>
                     <div className="col-md-6">
@@ -63,6 +76,8 @@ const CreateCourses = () => {
                         data-search-enabled="false"
                         data-remove-item-button="true"
                         name="level"
+                        onChange={(e) => setData({ ...data, level: e.target.value })}
+                        value={data.level}
                       >
                         <option value="">Select course level</option>
                         <option>Basic</option>
@@ -79,6 +94,8 @@ const CreateCourses = () => {
                         data-search-enabled="false"
                         data-remove-item-button="true"
                         name="degree"
+                        onChange={(e) => setData({ ...data, degree: e.target.value })}
+                        value={data.degree}
                       >
                         <option value="">Select degree</option>
                         <option>S1</option>
@@ -91,6 +108,8 @@ const CreateCourses = () => {
                         type="number"
                         placeholder="Enter credit course"
                         name="credit"
+                        onChange={(e) => setData({ ...data, credit: e.target.value })}
+                        value={data.credit}
                       />
                     </div>
                     <div className="col-md-6">
@@ -100,6 +119,8 @@ const CreateCourses = () => {
                         type="number"
                         placeholder="Enter number of session"
                         name="number_of_sessions"
+                        onChange={(e) => setData({ ...data, number_of_sessions: e.target.value })}
+                        value={data.number_of_sessions}
                       />
                     </div>
                     <div className="d-flex justify-content-end mt-3">
