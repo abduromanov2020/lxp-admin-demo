@@ -4,7 +4,7 @@ import Topbar from "../../component/default/Topbar";
 import CourseBoxes from "../../component/courses/CourseBoxes";
 import { Link } from "react-router-dom";
 import TableProperties from "../../component/default/TableProperties";
-import TableMDB from "../../component/courses/TableMDB";
+import TableCourses from "../../component/courses/TableCourses";
 
 const AllCourses = () => {
   const option = ["Course Name", "Added Date", "Level"];
@@ -25,7 +25,7 @@ const AllCourses = () => {
           </div>
           <CourseBoxes />
           <TableProperties option={option}>
-            <TableMDB />
+            <TableCourses />
           </TableProperties>
         </div>
       </div>

@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 
 const TableAdministration = () => {
   const [administrationList, setAdministrationList] = useState([]);
+  const [filterBy, setFilterBy] = useState("all");
 
   const dispatch = useDispatch();
 
@@ -30,12 +31,25 @@ const TableAdministration = () => {
     if (Object.values(data).length !== 0) setAdministrationList(data.admin_list.data);
   }, [data]);
 
-  // create table sort
-  // const [sortType, setSortType] = useState("asc");
-  // const sorted = administrationList.sort((a, b) => {
-  //   const isReversed = sortType === "asc" ? 1 : -1;
-  //   return isReversed * a.full_name.localeCompare(b.full_name);
-  // });
+  const filter = ["all", "approved", "pending", "rejected"];
+
+  const handleFilter = (e) => {
+    setFilterBy(e.target.value);
+    if (e.target.value === "all") {
+      setAdministrationList(data.admin_list.data);
+    } else if (e.target.value === "approved") {
+      const filteredData = data.admin_list.data.filter((data) => data.is_approved === true);
+      setAdministrationList(filteredData);
+    } else if (e.target.value === "pending") {
+      const filteredData = data.admin_list.data.filter((data) => data.is_approved === null);
+      setAdministrationList(filteredData);
+    } else {
+      const filteredData = data.admin_list.data.filter(
+        (data) => data.is_approved === e.target.value,
+      );
+      setAdministrationList(filteredData);
+    }
+  };
 
   return (
     <>
@@ -49,6 +63,18 @@ const TableAdministration = () => {
 
       {isSuccess && !isLoading && (
         <div className="card-body">
+          <div className="d-flex gap-2 align-items-center mb-3">
+            {filter.map((data, index) => (
+              <button
+                key={index}
+                className={`btn btn-sm ${filterBy === data ? "btn-primary" : "btn-primary-soft"}`}
+                onClick={(e) => handleFilter(e)}
+                value={data}
+              >
+                {data.charAt(0).toUpperCase() + data.slice(1)}
+              </button>
+            ))}
+          </div>
           <div className="table-responsive border-0 rounded-3">
             <table className="table table-dark-gray align-middle p-4 mb-0 table-hover text-center">
               <thead>

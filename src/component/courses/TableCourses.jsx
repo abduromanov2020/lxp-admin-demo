@@ -19,9 +19,10 @@ const TableCourses = () => {
 
   useEffect(() => {
     if (isSuccess && data) {
+      console.log(data);
       setCourseList(data);
     }
-  }, [data]);
+  }, [isSuccess, data]);
 
   return (
     <>
